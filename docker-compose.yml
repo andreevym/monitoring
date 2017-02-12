@@ -1,0 +1,36 @@
+version: '2'
+
+networks:
+  net:
+
+services:
+
+  influxdb:
+    container_name: influxdb
+    image: influxdb:latest
+    ports:
+      - "8086:8086"
+      - "8083:8086"
+      - "8090:8090"
+      - "8099:8099"
+    environment:
+      INFLUXDB_DATA_ENGINE: tsm1
+    volumes:
+      - ./orderfy-config/init-influxdb.sh:/usr/init-influxdb.sh
+    networks:
+    - net
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:latest
+    volumes:
+      - ./orderfy-config/init-grafana.cmd:/etc/grafana/scripts/init-grafana.cmd
+      - ./orderfy-config/datasource.json:/etc/grafana/scripts/datasource.json
+    ports:
+      - "3000:3000"
+    depends_on:
+      - influxdb
+    links:
+      - influxdb
+    networks:
+    - net
