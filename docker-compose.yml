@@ -24,9 +24,7 @@ services:
     container_name: grafana
     image: grafana/grafana:latest
     volumes:
-      - ./config/grafana.cmd:/etc/grafana/scripts/grafana.cmd
-      - ./config/datasource.json:/etc/grafana/scripts/datasource.json
-      - ./config/dashboard.json:/etc/grafana/scripts/dashboard.json
+      - ./config:/etc/grafana/scripts
     ports:
       - "3000:3000"
     depends_on:
