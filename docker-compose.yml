@@ -26,6 +26,7 @@ services:
     volumes:
       - ./config/grafana.cmd:/etc/grafana/scripts/grafana.cmd
       - ./config/datasource.json:/etc/grafana/scripts/datasource.json
+      - ./config/dashboard.json:/etc/grafana/scripts/dashboard.json
     ports:
       - "3000:3000"
     depends_on:

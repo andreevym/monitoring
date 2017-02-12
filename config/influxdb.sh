@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-echo "init-influxdb.sh"
+echo "influxdb.sh"
 
 influx -execute 'SHOW DATABASES'
 influx -execute 'CREATE DATABASE hyperledger'
