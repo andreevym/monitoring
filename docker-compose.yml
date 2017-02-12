@@ -16,7 +16,7 @@ services:
     environment:
       INFLUXDB_DATA_ENGINE: tsm1
     volumes:
-      - ./orderfy-config/init-influxdb.sh:/usr/init-influxdb.sh
+      - ./config/influxdb.sh:/usr/local/influxdb.sh
     networks:
     - net
 
@@ -24,8 +24,8 @@ services:
     container_name: grafana
     image: grafana/grafana:latest
     volumes:
-      - ./orderfy-config/init-grafana.cmd:/etc/grafana/scripts/init-grafana.cmd
-      - ./orderfy-config/datasource.json:/etc/grafana/scripts/datasource.json
+      - ./config/grafana.cmd:/etc/grafana/scripts/grafana.cmd
+      - ./config/datasource.json:/etc/grafana/scripts/datasource.json
     ports:
       - "3000:3000"
     depends_on:
