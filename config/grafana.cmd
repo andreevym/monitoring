@@ -10,3 +10,5 @@ echo ">>>>> setup dashboards - Hyperledger <<<<<"
 curl -X POST http://grafana:3000/api/dashboards/db -d @/etc/grafana/scripts/dashboard.json --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46YWRtaW4='
 echo ">>>>> setup dashboards - getAuditHistory <<<<<"
 curl -X POST http://grafana:3000/api/dashboards/db -d @/etc/grafana/scripts/dashboard-getAuditHistory.json --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46YWRtaW4='
+echo ">>>>> setup dashboards - main <<<<<"
+curl -X POST http://grafana:3000/api/dashboards/db -d @/etc/grafana/scripts/dashboard-main.json --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46YWRtaW4='
